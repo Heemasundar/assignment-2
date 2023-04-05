@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int array[] = {10, 15, 90, 200, 110};
+    int n = sizeof(array) / sizeof(int);
+    
+    int min = array[0];
+    int max_diff = array[1] - array[0];
+    
+    for (int i = 1; i < n; i++) {
+        if (array[i] - min > max_diff) {
+            max_diff = array[i] - min;
+        }
+        if (array[i] < min) {
+            min = array[i];
+        }
+    }
+    
+    printf("Maximum difference is %d", max_diff);
+    
+    return 0;
+}
