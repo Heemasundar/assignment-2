@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i, j, temp;
+    int largest, second_largest, smallest, second_smallest;
+    float avg;
+
+    // Read the number of elements in the array
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    // Read the elements of the array
+    printf("Enter the elements of the array: ");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Sort the array in descending order
+    for (i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (arr[i] < arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+
+    // Find the second largest and smallest elements in the array
+    largest = arr[0];
+    second_largest = arr[1];
+    smallest = arr[n - 1];
+    second_smallest = arr[n - 2];
+    avg = (float)(second_largest + second_smallest) / 2;
+
+    // Check if the average is present in the array
+    for (i = 0; i < n; i++) {
+        if (arr[i] == avg) {
+            printf("%.2f is present in the array.", avg);
+            break;
+        }
+    }
+
+    // If average is not present in the array
+    if (i == n) {
+        printf("%.2f is not present in the array.", avg);
+    }
+
+    return 0;
+}
