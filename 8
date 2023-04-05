@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+#define MAX_SIZE 100 // maximum size of the array
+
+int main() {
+    int arr[MAX_SIZE];
+    int n, i, j, temp;
+
+    // read the size of the array from the user
+    printf("Enter the size of the array (maximum %d): ", MAX_SIZE);
+    scanf("%d", &n);
+
+    // read the elements of the array from the user
+    printf("Enter %d integers: ", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // sort the array in descending order using bubble sort algorithm
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (arr[j] < arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    // print the sorted array
+    printf("The array sorted in descending order is: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
